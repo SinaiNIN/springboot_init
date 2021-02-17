@@ -1,14 +1,13 @@
 package com.example;
-
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class SpringbootTestingApplication {
+public class SpringMainApplication {
 
     public static void main(String[] args) throws Exception {
         ApplicationDatabaseInitializer.verify();
-        SpringApplication.run(SpringbootTestingApplication.class, args);
+        SpringApplication.run(SpringMainApplication.class, args);
     }
 
 }
