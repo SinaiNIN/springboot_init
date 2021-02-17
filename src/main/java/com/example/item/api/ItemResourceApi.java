@@ -33,11 +33,9 @@ public class ItemResourceApi {
         return itemService.updateItem(id, itemDataMapper.toEntity(itemDto));
     }
 
-
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public List<Item> getAllUser() {
         return itemService.getAllUsers();
     }
-
 }
