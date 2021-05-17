@@ -7,15 +7,20 @@ import com.example.category.repository.CategoryRepository;
 import com.example.exception.ResourceNotFoundException;
 import com.example.item.domain.Item;
 import com.example.persistence.mapper.DtoMapper;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@AllArgsConstructor
 public class ItemDataMapper implements DtoMapper<ItemDto, Item> {
 
     private final BrandRepository brandRepository;
     private final CategoryRepository categoryRepository;
+
+    @Autowired
+    public ItemDataMapper(BrandRepository brandRepository, CategoryRepository categoryRepository) {
+        this.brandRepository = brandRepository;
+        this.categoryRepository = categoryRepository;
+    }
 
     @Override
     public Item toEntity(ItemDto itemDto) {
