@@ -99,8 +99,8 @@ class ItemServiceTest {
         Item item = new Item("LG TV L800", category, brand, "{Price:1000$}", Boolean.TRUE);
         var itemList = List.of(item);
 
-        given(itemService.getAllUsers()).willReturn(itemList);
-        itemService.getAllUsers();
+        given(itemService.getAllItems()).willReturn(itemList);
+        itemService.getAllItems();
         verify(itemRepository).findAll();
     }
 }

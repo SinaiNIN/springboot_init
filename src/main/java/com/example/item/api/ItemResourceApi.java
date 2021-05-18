@@ -4,7 +4,7 @@ import com.example.item.domain.Item;
 import com.example.item.dto.ItemDataMapper;
 import com.example.item.dto.ItemDto;
 import com.example.item.service.ItemService;
-import lombok.AllArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 
 import javax.ws.rs.*;
@@ -12,11 +12,16 @@ import javax.ws.rs.core.MediaType;
 import java.util.List;
 
 @Controller
-@AllArgsConstructor
 @Path("{item}")
 public class ItemResourceApi {
     private final ItemService itemService;
     private final ItemDataMapper itemDataMapper;
+
+    @Autowired
+    public ItemResourceApi(ItemService itemService, ItemDataMapper itemDataMapper) {
+        this.itemService = itemService;
+        this.itemDataMapper = itemDataMapper;
+    }
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -35,7 +40,7 @@ public class ItemResourceApi {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Item> getAllUser() {
-        return itemService.getAllUsers();
+    public List<Item> getAllItems() {
+        return itemService.getAllItems();
     }
 }
