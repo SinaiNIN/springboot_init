@@ -39,8 +39,9 @@ public class ItemResourceApi {
     }
 
     @GET
+    @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
-    public List<Item> getAllItems() {
+    public List<Item> getByUserName() {
         return itemService.getAllItems();
     }
 }
