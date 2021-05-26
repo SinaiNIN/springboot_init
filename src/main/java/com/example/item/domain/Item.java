@@ -15,7 +15,7 @@ import javax.persistence.*;
 @Getter
 @Setter
 @AllArgsConstructor
-@Where(clause = "status=true")
+@Where(clause = "status=true AND name LIKE '%Sony%'")
 @Entity
 @Table(name = "tbl_item")
 public class Item extends VersionedEntity {
